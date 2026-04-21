@@ -24,8 +24,7 @@ void* philosopher(void* num) {
 
         // Eating
         printf("Philosopher %d is EATING\n", id);
-        printf("Philosopher %d picked forks %d and %d\n",
-               id, id, (id + 1) % N);
+        printf("Philosopher %d picked forks %d and %d\n",id, id, (id + 1) % N);
 
         sleep(2);
 
@@ -59,10 +58,6 @@ int main() {
         ids[i] = i;
         pthread_create(&ph[i], NULL, philosopher, &ids[i]);
     }
-
-    // Join threads (infinite loop, so optional)
-    for (int i = 0; i < N; i++)
-        pthread_join(ph[i], NULL);
 
     return 0;
 }
